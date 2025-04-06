@@ -1,23 +1,13 @@
-import express, { Express } from 'express';
+import * as dotenv from 'dotenv';
+import { apiService } from '@/api-server';
 
-class APIService {
-  private app: Express;
-  private port: number;
+dotenv.config();
 
-  constructor() {
-    this.app = express();
-    this.port = 8080;
-    this.app.get('/', (_req, res) => {
-      res.send('OK');
-    });
-  }
+const serviceType: string = process.env.SERVICE_TYPE ?? 'api-service';
 
-  public start(): void {
-    this.app.listen(this.port, () => {
-      console.log(`Server is running at http://localhost:${this.port}`);
-    });
-  }
+if (serviceType === 'queue-service') {
+  console.info(' Start Queue Service');
+} else {
+  console.info('Start API Service');
+  void apiService.start();
 }
-
-export const server = new APIService();
-server.start();

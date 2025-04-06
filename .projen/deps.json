@@ -28,6 +28,10 @@
       "type": "build"
     },
     {
+      "name": "apidoc",
+      "type": "build"
+    },
+    {
       "name": "commit-and-tag-version",
       "version": "^12",
       "type": "build"
@@ -42,11 +46,19 @@
       "type": "build"
     },
     {
+      "name": "eslint-config-prettier",
+      "type": "build"
+    },
+    {
       "name": "eslint-import-resolver-typescript",
       "type": "build"
     },
     {
       "name": "eslint-plugin-import",
+      "type": "build"
+    },
+    {
+      "name": "eslint-plugin-prettier",
       "type": "build"
     },
     {
@@ -88,11 +100,27 @@
       "type": "build"
     },
     {
+      "name": "@atproto/api",
+      "type": "runtime"
+    },
+    {
+      "name": "@atproto/oauth-client-node",
+      "type": "runtime"
+    },
+    {
       "name": "@types/express",
       "type": "runtime"
     },
     {
+      "name": "dotenv",
+      "type": "runtime"
+    },
+    {
       "name": "express",
+      "type": "runtime"
+    },
+    {
+      "name": "joi",
       "type": "runtime"
     }
   ],
