@@ -72,7 +72,7 @@ export class QueueService {
         this.exchangeName,
         'bluesky.task',
         Buffer.from(JSON.stringify(message)),
-        { persistent: true }
+        { persistent: true },
       );
     } catch (error) {
       console.error('Error publishing message:', error);
