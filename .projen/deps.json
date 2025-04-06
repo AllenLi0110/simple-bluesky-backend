@@ -6,6 +6,10 @@
       "type": "build"
     },
     {
+      "name": "@types/amqplib",
+      "type": "build"
+    },
+    {
       "name": "@types/express",
       "type": "build"
     },
@@ -109,6 +113,10 @@
     },
     {
       "name": "@types/express",
+      "type": "runtime"
+    },
+    {
+      "name": "amqplib",
       "type": "runtime"
     },
     {

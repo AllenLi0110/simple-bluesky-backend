@@ -12,12 +12,15 @@ const project = new typescript.TypeScriptProject({
     '@atproto/api',
     '@atproto/oauth-client-node',
     'dotenv',
+    // Queue
+    'amqplib',
   ],
   // devDeps: [],             /* Build dependencies for this module. */
   devDeps: [
     // Type definitions
     '@types/express',
     '@types/jest',
+    '@types/amqplib',
 
     // Build tools
     'esbuild',
