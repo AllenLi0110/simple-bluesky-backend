@@ -20,7 +20,7 @@ export default [
   async function (
     request: SignInRequest,
     response: SignInResponse,
-    next: NextFunction
+    next: NextFunction,
   ): Promise<void> {
     try {
       const repository = new AuthenticationRepository();
