@@ -92,6 +92,14 @@
         }
       ]
     },
+    "dev": {
+      "name": "dev",
+      "steps": [
+        {
+          "exec": "node esbuild.mjs && node dist/index.js"
+        }
+      ]
+    },
     "eject": {
       "name": "eject",
       "description": "Remove projen from the project",
@@ -230,13 +238,13 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-import-resolver-typescript,eslint-plugin-import,jest,projen,ts-jest,ts-node,typescript"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/express,@types/jest,@types/node,esbuild,eslint-import-resolver-typescript,eslint-plugin-import,jest,nodemon,prettier,projen,ts-jest,ts-node,typescript,express"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @stylistic/eslint-plugin @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser commit-and-tag-version constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit projen ts-jest ts-node typescript"
+          "exec": "yarn upgrade @stylistic/eslint-plugin @types/express @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser commit-and-tag-version constructs esbuild eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit nodemon prettier projen ts-jest ts-node typescript express"
         },
         {
           "exec": "npx projen"
