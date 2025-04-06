@@ -1,6 +1,7 @@
 import express, { Router } from 'express';
 import errorHandler from './error-handler';
 import authenticationsRouter from '@/apps/authentications';
+import queueRouter from '@/queue';
 
 const isDevelop = !!process.env.API_SERVICE_STAGE?.includes('.local');
 class APIService {
@@ -37,5 +38,5 @@ class APIService {
 
 export const apiService = new APIService();
 
-apiService.addRouters([authenticationsRouter]);
+apiService.addRouters([authenticationsRouter, queueRouter]);
 apiService.use([errorHandler]);
