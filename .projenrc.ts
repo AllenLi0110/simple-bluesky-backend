@@ -38,6 +38,14 @@ const project = new typescript.TypeScriptProject({
     'eslint-import-resolver-typescript',
   ],
   jest: true,
+  jestOptions: {
+    jestConfig: {
+      moduleNameMapper: {
+        '^@/(.*)$': '<rootDir>/src/$1',
+      },
+      testEnvironment: 'node',
+    },
+  },
   sampleCode: false,
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   // packageName: undefined,  /* The "name" in package.json. */
@@ -48,13 +56,12 @@ const project = new typescript.TypeScriptProject({
         '@/*': ['*'],
       },
       lib: ['es2019', 'dom'],
-      // TODO: Temporary workaround for type errors in third-party dependencies (@atproto/xrpc and multiformats).
+      // @TODO: Temporary workaround for type errors in third-party dependencies (@atproto/xrpc and multiformats).
       // Remove when these packages fix their TypeScript declarations.
       skipLibCheck: true,
     },
   },
 });
-
 project.addTask('dev', {
   exec: 'node esbuild.mjs && node dist/index.js',
 });
