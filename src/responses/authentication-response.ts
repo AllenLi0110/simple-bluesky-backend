@@ -19,14 +19,54 @@ import { BasicResponse } from '.';
  * @apiSuccessExample {json} Success-Response: HTTP/1.1 200 OK
  *      {
  *        "data": {
- *          "accessJwt": "eyJhbGciOiJIUzI1NiIs...",
- *          "refreshJwt": "eyJhbGciOiJIUzI1NiIs...",
- *          "handle": "user.bsky.social",
- *          "did": "did:plc:abcdef123456",
- *          "email": "user@example.com",
+ *          "accessJwt": "mockAccessJwtToken",
+ *          "refreshJwt": "mockRefreshJwtToken",
+ *          "handle": "mockUserHandle",
+ *          "did": "mockDid",
+ *          "email": "mock@example.com",
  *          "emailConfirmed": true,
- *          "active": true
- *        }
+ *          "emailAuthFactor": false,
+ *          "active": true,
+ *          "didDoc": {
+ *            "@context": [
+ *              "https://www.w3.org/ns/did/v1",
+ *              "https://w3id.org/security/multikey/v1",
+ *              "https://w3id.org/security/suites/secp256k1-2019/v1"
+ *            ],
+ *            "id": "mockDid",
+ *            "alsoKnownAs": [
+ *              "at://mockUserHandle.bsky.social"
+ *            ],
+ *            "verificationMethod": [
+ *              {
+ *                "id": "mockDid#atproto",
+ *                "type": "Multikey",
+ *                "controller": "mockDid",
+ *                "publicKeyMultibase": "mockPublicKey"
+ *              }
+ *            ],
+ *            "service": [
+ *              {
+ *                "id": "#atproto_pds",
+ *                "type": "AtprotoPersonalDataServer",
+ *                "serviceEndpoint": "https://mock.service.endpoint"
+ *              }
+ *            ]
+ *          }
+ *        },
+ *        "headers": {
+ *          "access-control-allow-origin": "*",
+ *          "connection": "keep-alive",
+ *          "content-encoding": "gzip",
+ *          "content-type": "application/json; charset=utf-8",
+ *          "date": "Sun, 06 Apr 2025 17:50:23 GMT",
+ *          "etag": "W/\"mockEtag\"",
+ *          "ratelimit-limit": "10",
+ *          "ratelimit-remaining": "9",
+ *          "ratelimit-reset": "mockResetTime",
+ *          "x-powered-by": "Express"
+ *        },
+ *        "success": true
  *      }
  */
 export type SignInResponse = Response<BasicResponse>;
