@@ -1,0 +1,77 @@
+name: Create pull request on push to branch fix/feat
+
+on:
+  push:
+    branches:
+      - "feat/*"
+      - "fix/*"
+      - "refactor/*"
+
+jobs:
+  create_pull_request:
+    name: Create Pull Request
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+      checks: write
+      statuses: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set PR metadata
+        id: pr_metadata
+        run: |
+          if [[ "${{ github.ref }}" == "refs/heads/feat/"* ]]; then
+            echo "label=feature" >> $GITHUB_OUTPUT
+            echo "prefix=feat:" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.ref }}" == "refs/heads/fix/"* ]]; then
+            echo "label=bug" >> $GITHUB_OUTPUT
+            echo "prefix=fix:" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.ref }}" == "refs/heads/refactor/"* ]]; then
+            echo "label=refactor" >> $GITHUB_OUTPUT
+            echo "prefix=refactor:" >> $GITHUB_OUTPUT
+          fi
+
+          TITLE="${{ github.event.head_commit.message }}"
+          TITLE=${TITLE//feat:/}                    
+          TITLE=${TITLE//fix:/}
+          TITLE=${TITLE//refactor:/}
+          echo "title=$TITLE" >> $GITHUB_OUTPUT
+          echo "branch=${GITHUB_REF#refs/heads/}" >> $GITHUB_OUTPUT
+
+      - name: Create Pull Request
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.PROJEN_GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+          PR_BODY: |
+            # Pull Request
+
+            ## Summary
+
+            Please provide a summary of your changes.
+
+            ## Jira Reference
+
+            - SB-XXX [Link to Jira issue]
+
+            ## Change Type
+
+            - [ ] Bug Fix - Resolves an existing issue or error
+            - [ ] New Feature - Adds new functionality
+            - [ ] Refactor - Improves code structure without changing behavior
+
+        run: |
+          gh pr create \
+            --repo ${{ github.repository }} \
+            --base "main" \
+            --head "${{ steps.pr_metadata.outputs.branch }}" \
+            --label "${{ steps.pr_metadata.outputs.label }}" \
+            --title "${{ steps.pr_metadata.outputs.prefix }} SB-### - ${{ steps.pr_metadata.outputs.title }}" \
+            --body "${{ env.PR_BODY }}" \
+            --reviewer "AllenLi0110" \
+            --assignee "${{ github.actor }}" \
+            --draft
