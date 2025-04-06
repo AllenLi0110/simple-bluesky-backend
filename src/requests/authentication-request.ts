@@ -4,10 +4,10 @@ import { Request } from 'express';
  * @apiDefine SignInRequest
  * @apiParamExample {json} Request-Example:
  *      {
- *          "identifier": "example@gmail.com",
+ *          "identifier": "example.bsky.social",
  *          "password": "**********"
  *      }
- * @apiBody  {String}   account   The account of user.
+ * @apiBody  {String}   account   The identifier of user.
  * @apiBody  {String}   password  The password of user.
  */
 
