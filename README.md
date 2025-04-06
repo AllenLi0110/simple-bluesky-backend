@@ -23,6 +23,8 @@ A simple backend application for interacting with Bluesky, a decentralized socia
 |  ├── validators
 |  |  └── resources
 |  |  └── schemas
+|  └── api-server.ts
+|  └── error-handler.ts
 |  └── index.ts
 ├── .prettierrc
 ├── .projenrc.ts
