@@ -1,6 +1,9 @@
+import * as dotenv from 'dotenv';
 import express, { Router } from 'express';
 import errorHandler from './error-handler';
 import authenticationsRouter from '@/apps/authentications';
+
+dotenv.config();
 
 const isDevelop = !!process.env.API_SERVICE_STAGE?.includes('.local');
 class APIService {

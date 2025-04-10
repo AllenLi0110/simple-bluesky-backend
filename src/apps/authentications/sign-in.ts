@@ -24,11 +24,35 @@ export default [
   ): Promise<void> {
     try {
       const repository = new AuthenticationRepository();
-      const data = await repository.signIn({
+      const {
+        accessJwt,
+        refreshJwt,
+        handle,
+        did,
+        didDoc,
+        email,
+        emailConfirmed,
+        emailAuthFactor,
+        active,
+        status,
+      } = await repository.signIn({
         identifier: request.body.identifier,
         password: request.body.password,
       });
-      response.json({ data });
+      response.json({
+        data: {
+          accessJwt,
+          refreshJwt,
+          handle,
+          did,
+          didDoc,
+          email,
+          emailConfirmed,
+          emailAuthFactor,
+          active,
+          status,
+        },
+      });
     } catch (error) {
       return next(error);
     }
