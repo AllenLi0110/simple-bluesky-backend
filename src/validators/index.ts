@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import Joi from 'joi';
-import { RequestPart } from '@/definitions/validators/validators';
+import { RequestPart } from '@/definitions';
 
 export default class Validator {
   public static body<T extends Request>(schema: Joi.ObjectSchema) {

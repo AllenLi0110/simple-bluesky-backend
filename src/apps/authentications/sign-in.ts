@@ -24,11 +24,13 @@ export default [
   ): Promise<void> {
     try {
       const repository = new AuthenticationRepository();
-      const data = await repository.signIn({
+      const result = await repository.signIn({
         identifier: request.body.identifier,
         password: request.body.password,
       });
-      response.json({ data });
+      response.json({
+        data: result,
+      });
     } catch (error) {
       return next(error);
     }

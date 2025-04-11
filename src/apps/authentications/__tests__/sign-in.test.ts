@@ -32,7 +32,9 @@ describe('SignIn Test', () => {
 
     jest
       .spyOn(AuthenticationRepository.prototype, 'signIn')
-      .mockResolvedValue(mockSignOutput as unknown as ComAtprotoServerCreateSession.Response);
+      .mockResolvedValue(
+        mockSignOutput as unknown as ComAtprotoServerCreateSession.Response['data'],
+      );
 
     const request = {
       body: mockData,
