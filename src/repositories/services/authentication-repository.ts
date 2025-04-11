@@ -12,11 +12,11 @@ export default class AuthenticationRepository {
 
   public async signIn(input: SignInInput): Promise<SignInOutput> {
     try {
-      const response = await this.agent.login({
+      const { data } = await this.agent.login({
         identifier: input.identifier,
         password: input.password,
       });
-      return response;
+      return data;
     } catch (error) {
       return Promise.reject(error);
     }
