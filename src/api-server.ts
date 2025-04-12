@@ -37,7 +37,7 @@ class APIService {
       cors({
         origin: process.env.WEB_APP_DOMAIN || 'http://localhost:5173' || 'http://localhost:8080',
         credentials: true,
-      })
+      }),
     );
     this.app.use(express.json());
     this.app.use(cookieParser());

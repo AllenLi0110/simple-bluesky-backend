@@ -5,7 +5,7 @@ import { AtpToken } from '@/definitions';
 export const verifyDid = async function (
   request: Request,
   _response: Response,
-  next: NextFunction
+  next: NextFunction,
 ): Promise<void> {
   try {
     const token = request.cookies.access_token;
