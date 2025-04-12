@@ -20,6 +20,8 @@ A simple backend application for interacting with Bluesky, a decentralized socia
 |  ├── repositories
 |  ├── requests
 |  ├── responses
+|  ├── types
+|  ├── utils
 |  ├── validators
 |  |  └── resources
 |  |  └── schemas

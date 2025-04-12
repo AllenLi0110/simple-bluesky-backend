@@ -31,12 +31,16 @@
     "paths": {
       "@/*": [
         "*"
+      ],
+      "@middlewares/*": [
+        "middlewares/*"
       ]
     },
     "skipLibCheck": true
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "src/types"
   ],
   "exclude": []
 }

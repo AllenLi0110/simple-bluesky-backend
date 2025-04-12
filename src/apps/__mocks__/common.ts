@@ -4,10 +4,10 @@ export const mockSignInput = {
 };
 
 export const mockSignOutput = {
-  accessJwt: 'mock-access-jwt',
-  refreshJwt: 'mock-refresh-jwt',
-  handle: 'mock-handle',
-  did: 'mock-did',
+  accessJwt: 'mockAccessJwt',
+  refreshJwt: 'mockRefreshJwt',
+  handle: 'mockHandle',
+  did: 'mockDid',
   email: 'mock@example.com',
   emailConfirmed: true,
   emailAuthFactor: false,
@@ -18,13 +18,13 @@ export const mockSignOutput = {
       'https://w3id.org/security/multikey/v1',
       'https://w3id.org/security/suites/secp256k1-2019/v1',
     ],
-    'id': 'mock-did',
+    'id': 'mockDid',
     'alsoKnownAs': ['at://mock-handle.bsky.social'],
     'verificationMethod': [
       {
-        id: 'mock-did#atproto',
+        id: 'mockDid#atproto',
         type: 'Multikey',
-        controller: 'mock-did',
+        controller: 'mockDid',
         publicKeyMultibase: 'mockPublicKey',
       },
     ],

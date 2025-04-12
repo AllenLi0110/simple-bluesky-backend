@@ -29,6 +29,9 @@
     "paths": {
       "@/*": [
         "*"
+      ],
+      "@middlewares/*": [
+        "middlewares/*"
       ]
     },
     "skipLibCheck": true
@@ -36,6 +39,7 @@
   "include": [
     "src/**/*.ts",
     "test/**/*.ts",
+    "src/types",
     ".projenrc.ts",
     "projenrc/**/*.ts"
   ],

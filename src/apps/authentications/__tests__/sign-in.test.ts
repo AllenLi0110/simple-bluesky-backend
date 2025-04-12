@@ -35,16 +35,22 @@ describe('SignIn Test', () => {
       .mockResolvedValue(
         mockSignOutput as unknown as ComAtprotoServerCreateSession.Response['data'],
       );
-
+    const mockCookie = jest.fn();
     const request = {
       body: mockData,
     } as unknown as SignInRequest;
     const response = {
+      cookie: mockCookie,
       json: jest.fn(),
     } as unknown as SignInResponse;
     const mockNext = jest.fn();
     await mainHandler(request, response, mockNext);
     expect(mockNext).not.toHaveBeenCalled();
+    expect(mockCookie).toHaveBeenCalledWith(
+      'access_token',
+      mockSignOutput.accessJwt,
+      expect.objectContaining({ httpOnly: true }),
+    );
     expect(response.json).toHaveBeenCalledTimes(1);
     expect(response.json).toHaveBeenCalledWith({ data: mockSignOutput });
   });

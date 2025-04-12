@@ -6,6 +6,14 @@
       "type": "build"
     },
     {
+      "name": "@types/cookie-parser",
+      "type": "build"
+    },
+    {
+      "name": "@types/cors",
+      "type": "build"
+    },
+    {
       "name": "@types/express",
       "type": "build"
     },
@@ -112,6 +120,14 @@
       "type": "runtime"
     },
     {
+      "name": "cookie-parser",
+      "type": "runtime"
+    },
+    {
+      "name": "cors",
+      "type": "runtime"
+    },
+    {
       "name": "dotenv",
       "type": "runtime"
     },
@@ -121,6 +137,10 @@
     },
     {
       "name": "joi",
+      "type": "runtime"
+    },
+    {
+      "name": "jose",
       "type": "runtime"
     }
   ],

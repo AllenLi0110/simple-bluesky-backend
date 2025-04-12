@@ -7,8 +7,8 @@ import { Request } from 'express';
  *          "identifier": "example.bsky.social",
  *          "password": "**********"
  *      }
- * @apiBody  {String}   account   The identifier of user.
- * @apiBody  {String}   password  The password of user.
+ * @apiBody  {String}  account   The identifier of user.
+ * @apiBody  {String}  password  The password of user.
  */
 
 export type SignInRequest = Request<

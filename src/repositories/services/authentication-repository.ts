@@ -1,15 +1,7 @@
-import { AtpAgent } from '@atproto/api';
+import AtpRepository from './atp-repository';
 import { SignInInput, SignInOutput } from './contracts/authentication';
 
-export default class AuthenticationRepository {
-  private readonly agent: AtpAgent;
-
-  constructor() {
-    this.agent = new AtpAgent({
-      service: 'https://bsky.social',
-    });
-  }
-
+export default class AuthenticationRepository extends AtpRepository {
   public async signIn(input: SignInInput): Promise<SignInOutput> {
     try {
       const { data } = await this.agent.login({
