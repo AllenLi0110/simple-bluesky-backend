@@ -1,7 +1,7 @@
 import { ComAtprotoServerCreateSession } from '@atproto/api';
 import { ValidationError } from 'joi';
 import signIn from '../sign-in';
-import { mockSignInput, mockSignOutput } from '@/apps/__mocks__/common';
+import { mockSignInInput, mockSignInOutput } from '@/apps/__mocks__/common';
 import { AuthenticationRepository } from '@/repositories';
 import { SignInRequest } from '@/requests/authentication-request';
 import { SignInResponse } from '@/responses/authentication-response';
@@ -11,7 +11,7 @@ const [bodyValidator, mainHandler] = signIn;
 describe('SignIn Test', () => {
   test('With correct data expect success', async () => {
     const request = {
-      body: mockSignInput,
+      body: mockSignInInput,
     } as unknown as SignInRequest;
     const response = {} as SignInResponse;
     const mockNext = jest.fn((error?: ValidationError | string) => {
@@ -24,11 +24,11 @@ describe('SignIn Test', () => {
     jest
       .spyOn(AuthenticationRepository.prototype, 'signIn')
       .mockResolvedValue(
-        mockSignOutput as unknown as ComAtprotoServerCreateSession.Response['data'],
+        mockSignInOutput as unknown as ComAtprotoServerCreateSession.Response['data']
       );
     const mockCookie = jest.fn();
     const request = {
-      body: mockSignInput,
+      body: mockSignInInput,
     } as unknown as SignInRequest;
     const response = {
       cookie: mockCookie,
@@ -39,10 +39,10 @@ describe('SignIn Test', () => {
     expect(mockNext).not.toHaveBeenCalled();
     expect(mockCookie).toHaveBeenCalledWith(
       'access_token',
-      mockSignOutput.accessJwt,
-      expect.objectContaining({ httpOnly: true }),
+      mockSignInOutput.accessJwt,
+      expect.objectContaining({ httpOnly: true })
     );
     expect(response.json).toHaveBeenCalledTimes(1);
-    expect(response.json).toHaveBeenCalledWith({ data: mockSignOutput });
+    expect(response.json).toHaveBeenCalledWith({ data: mockSignInOutput });
   });
 });

@@ -1,8 +1,8 @@
-export const mockSignInput = {
+export const mockSignInInput = {
   identifier: 'example.bsky.social',
   password: '**********',
 };
-export const mockSignOutput = {
+export const mockSignInOutput = {
   accessJwt: 'mockAccessJwt',
   refreshJwt: 'mockRefreshJwt',
   handle: 'mockHandle',
@@ -17,9 +17,9 @@ export const mockSignOutput = {
       'https://w3id.org/security/multikey/v1',
       'https://w3id.org/security/suites/secp256k1-2019/v1',
     ],
-    'id': 'mockDid',
-    'alsoKnownAs': ['at://mock-handle.bsky.social'],
-    'verificationMethod': [
+    id: 'mockDid',
+    alsoKnownAs: ['at://mock-handle.bsky.social'],
+    verificationMethod: [
       {
         id: 'mockDid#atproto',
         type: 'Multikey',
@@ -27,7 +27,7 @@ export const mockSignOutput = {
         publicKeyMultibase: 'mockPublicKey',
       },
     ],
-    'service': [
+    service: [
       {
         id: '#atproto_pds',
         type: 'AtprotoPersonalDataServer',
