@@ -2,7 +2,6 @@ export const mockSignInput = {
   identifier: 'example.bsky.social',
   password: '**********',
 };
-
 export const mockSignOutput = {
   accessJwt: 'mockAccessJwt',
   refreshJwt: 'mockRefreshJwt',
@@ -36,4 +35,26 @@ export const mockSignOutput = {
       },
     ],
   },
+};
+
+export const mockPostInput = {
+  repo: 'mockRepo',
+  collection: 'app.bsky.feed.post',
+  rkey: 'mockRkey',
+  validate: true,
+  record: {
+    $type: 'app.bsky.feed.post',
+    text: 'This is a mock post text.',
+    langs: ['en'],
+    createdAt: '2025-04-11T17:05:51.782Z',
+  },
+};
+export const mockPostOutput = {
+  uri: 'at://did:plc:mockDid/app.bsky.feed.post/mockRkey',
+  cid: 'mockCid',
+  commit: {
+    cid: 'mockCid',
+    rev: 'mockRev',
+  },
+  validationStatus: 'valid',
 };

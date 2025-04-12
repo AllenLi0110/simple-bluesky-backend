@@ -10,12 +10,8 @@ const [bodyValidator, mainHandler] = signIn;
 
 describe('SignIn Test', () => {
   test('With correct data expect success', async () => {
-    const mockData = {
-      identifier: mockSignInput.identifier,
-      password: mockSignInput.password,
-    };
     const request = {
-      body: mockData,
+      body: mockSignInput,
     } as unknown as SignInRequest;
     const response = {} as SignInResponse;
     const mockNext = jest.fn((error?: ValidationError | string) => {
@@ -25,11 +21,6 @@ describe('SignIn Test', () => {
     expect(mockNext).toHaveBeenCalled();
   });
   test('Test sign-in with correct data expect success', async () => {
-    const mockData = {
-      identifier: mockSignInput.identifier,
-      password: mockSignInput.password,
-    };
-
     jest
       .spyOn(AuthenticationRepository.prototype, 'signIn')
       .mockResolvedValue(
@@ -37,7 +28,7 @@ describe('SignIn Test', () => {
       );
     const mockCookie = jest.fn();
     const request = {
-      body: mockData,
+      body: mockSignInput,
     } as unknown as SignInRequest;
     const response = {
       cookie: mockCookie,
