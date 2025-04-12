@@ -1,13 +1,12 @@
-export const mockSignInput = {
+export const mockSignInInput = {
   identifier: 'example.bsky.social',
   password: '**********',
 };
-
-export const mockSignOutput = {
-  accessJwt: 'mock-access-jwt',
-  refreshJwt: 'mock-refresh-jwt',
-  handle: 'mock-handle',
-  did: 'mock-did',
+export const mockSignInOutput = {
+  accessJwt: 'mockAccessJwt',
+  refreshJwt: 'mockRefreshJwt',
+  handle: 'mockHandle',
+  did: 'mockDid',
   email: 'mock@example.com',
   emailConfirmed: true,
   emailAuthFactor: false,
@@ -18,13 +17,13 @@ export const mockSignOutput = {
       'https://w3id.org/security/multikey/v1',
       'https://w3id.org/security/suites/secp256k1-2019/v1',
     ],
-    'id': 'mock-did',
+    'id': 'mockDid',
     'alsoKnownAs': ['at://mock-handle.bsky.social'],
     'verificationMethod': [
       {
-        id: 'mock-did#atproto',
+        id: 'mockDid#atproto',
         type: 'Multikey',
-        controller: 'mock-did',
+        controller: 'mockDid',
         publicKeyMultibase: 'mockPublicKey',
       },
     ],
@@ -36,4 +35,26 @@ export const mockSignOutput = {
       },
     ],
   },
+};
+
+export const mockPostInput = {
+  repo: 'mockRepo',
+  collection: 'app.bsky.feed.post',
+  rkey: 'mockRkey',
+  validate: true,
+  record: {
+    $type: 'app.bsky.feed.post',
+    text: 'This is a mock post text.',
+    langs: ['en'],
+    createdAt: '2025-04-11T17:05:51.782Z',
+  },
+};
+export const mockPostOutput = {
+  uri: 'at://did:plc:mockDid/app.bsky.feed.post/mockRkey',
+  cid: 'mockCid',
+  commit: {
+    cid: 'mockCid',
+    rev: 'mockRev',
+  },
+  validationStatus: 'valid',
 };

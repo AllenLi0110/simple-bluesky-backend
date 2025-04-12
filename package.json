@@ -23,6 +23,8 @@
   },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^2",
+    "@types/cookie-parser": "^1.4.8",
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.14.0",
@@ -50,9 +52,12 @@
     "@atproto/api": "^0.14.21",
     "@atproto/oauth-client-node": "^0.2.14",
     "@types/express": "^5.0.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "joi": "^17.13.3"
+    "joi": "^17.13.3",
+    "jose": "^6.0.10"
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",

@@ -8,16 +8,21 @@ const project = new typescript.TypeScriptProject({
     // API & Server
     'express',
     '@types/express',
-    'joi',
     '@atproto/api',
     '@atproto/oauth-client-node',
     'dotenv',
+    'cookie-parser',
+    'cors',
+    'joi',
+    'jose',
   ],
   // devDeps: [],             /* Build dependencies for this module. */
   devDeps: [
     // Type definitions
     '@types/express',
     '@types/jest',
+    '@types/cookie-parser',
+    '@types/cors',
 
     // Build tools
     'esbuild',
@@ -54,12 +59,15 @@ const project = new typescript.TypeScriptProject({
       baseUrl: 'src',
       paths: {
         '@/*': ['*'],
+        '@middlewares/*': ['middlewares/*'],
       },
       lib: ['es2019', 'dom'],
       // @TODO: Temporary workaround for type errors in third-party dependencies (@atproto/xrpc and multiformats).
+      // I'm using skipLibCheck to bypass the error messages.
       // Remove when these packages fix their TypeScript declarations.
       skipLibCheck: true,
     },
+    include: ['src/**/*.ts', 'src/types'],
   },
 });
 project.addTask('dev', {
