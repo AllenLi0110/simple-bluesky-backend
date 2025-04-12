@@ -7,6 +7,7 @@ import { RepositoryFactory } from './repositories';
 import authenticationsRouter from '@/apps/authentications';
 import postRouter from '@/apps/posts';
 
+
 dotenv.config();
 
 declare global {

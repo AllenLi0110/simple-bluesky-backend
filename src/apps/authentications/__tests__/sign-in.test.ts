@@ -24,7 +24,7 @@ describe('SignIn Test', () => {
     jest
       .spyOn(AuthenticationRepository.prototype, 'signIn')
       .mockResolvedValue(
-        mockSignInOutput as unknown as ComAtprotoServerCreateSession.Response['data']
+        mockSignInOutput as unknown as ComAtprotoServerCreateSession.Response['data'],
       );
     const mockCookie = jest.fn();
     const request = {
@@ -40,7 +40,7 @@ describe('SignIn Test', () => {
     expect(mockCookie).toHaveBeenCalledWith(
       'access_token',
       mockSignInOutput.accessJwt,
-      expect.objectContaining({ httpOnly: true })
+      expect.objectContaining({ httpOnly: true }),
     );
     expect(response.json).toHaveBeenCalledTimes(1);
     expect(response.json).toHaveBeenCalledWith({ data: mockSignInOutput });
