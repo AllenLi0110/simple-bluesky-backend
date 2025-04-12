@@ -3,9 +3,10 @@ name: Create pull request on push to branch fix/feat
 on:
   push:
     branches:
-      - "feat/*"
-      - "fix/*"
-      - "refactor/*"
+      - 'feat/*'
+      - 'fix/*'
+      - 'refactor/*'
+      - 'chore'
 
 jobs:
   create_pull_request:
