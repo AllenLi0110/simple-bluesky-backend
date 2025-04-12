@@ -18,6 +18,7 @@ jobs:
       id-token: write
       checks: write
       statuses: write
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -25,23 +26,29 @@ jobs:
       - name: Set PR metadata
         id: pr_metadata
         run: |
-          if [[ "${{ github.ref }}" == "refs/heads/feat/"* ]]; then
-            echo "label=feature" >> $GITHUB_OUTPUT
-            echo "prefix=feat:" >> $GITHUB_OUTPUT
-          elif [[ "${{ github.ref }}" == "refs/heads/fix/"* ]]; then
-            echo "label=bug" >> $GITHUB_OUTPUT
-            echo "prefix=fix:" >> $GITHUB_OUTPUT
-          elif [[ "${{ github.ref }}" == "refs/heads/refactor/"* ]]; then
-            echo "label=refactor" >> $GITHUB_OUTPUT
-            echo "prefix=refactor:" >> $GITHUB_OUTPUT
+          if [[ "${GITHUB_REF}" == "refs/heads/feat/"* ]]; then
+            echo "label=feature" >> "$GITHUB_OUTPUT"
+            echo "prefix=feat:" >> "$GITHUB_OUTPUT"
+          elif [[ "${GITHUB_REF}" == "refs/heads/fix/"* ]]; then
+            echo "label=bug" >> "$GITHUB_OUTPUT"
+            echo "prefix=fix:" >> "$GITHUB_OUTPUT"
+          elif [[ "${GITHUB_REF}" == "refs/heads/refactor/"* ]]; then
+            echo "label=refactor" >> "$GITHUB_OUTPUT"
+            echo "prefix=refactor:" >> "$GITHUB_OUTPUT"
           fi
 
           TITLE="${{ github.event.head_commit.message }}"
-          TITLE=${TITLE//feat:/}                    
-          TITLE=${TITLE//fix:/}
-          TITLE=${TITLE//refactor:/}
-          echo "title=$TITLE" >> $GITHUB_OUTPUT
-          echo "branch=${GITHUB_REF#refs/heads/}" >> $GITHUB_OUTPUT
+          # Strip common prefixes
+          TITLE="${TITLE//feat:/}"
+          TITLE="${TITLE//fix:/}"
+          TITLE="${TITLE//refactor:/}"
+
+          echo "branch=${GITHUB_REF#refs/heads/}" >> "$GITHUB_OUTPUT"
+
+          # Handle multiline title safely
+          echo "title<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$TITLE" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
 
       - name: Create Pull Request
         continue-on-error: true
