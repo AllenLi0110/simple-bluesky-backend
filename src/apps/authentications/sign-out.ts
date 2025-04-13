@@ -7,8 +7,8 @@ import { setCookies } from '@/helpers/set-cookies';
  * @apiDescription Sign Out
  * @apiGroup Authentications
  *
- * @apiUse SignOutRequest
- * @apiUse SignOutResponse
+ * @apiUse Request
+ * @apiUse Response
  */
 
 export default [
