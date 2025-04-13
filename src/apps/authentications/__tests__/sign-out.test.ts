@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import signOut from '../sign-out'; // Adjust the import path as necessary
+import signOut from '../sign-out';
 import { setCookies } from '@/helpers/set-cookies';
 
 jest.mock('@/helpers/set-cookies');
