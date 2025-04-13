@@ -13,9 +13,7 @@ describe('Sign Out', () => {
       json: jest.fn(),
     } as unknown as Response;
     const mockNext = jest.fn() as NextFunction;
-
     await mainHandler(mockRequest, mockResponse, mockNext);
-
     expect(setCookies).toHaveBeenCalledTimes(4);
     expect(setCookies).toHaveBeenCalledWith(mockResponse, 'access_token', '', { maxAge: 0 });
     expect(setCookies).toHaveBeenCalledWith(mockResponse, 'refresh_token', '', { maxAge: 0 });
@@ -32,14 +30,10 @@ describe('Sign Out', () => {
     const mockResponse = {} as Response;
     const mockNext = jest.fn() as NextFunction;
 
-    const [signOutHandler] = signOut;
-
     (setCookies as jest.Mock).mockImplementationOnce(() => {
       throw new Error('Test error');
     });
-
-    await signOutHandler(mockRequest, mockResponse, mockNext);
-
+    await mainHandler(mockRequest, mockResponse, mockNext);
     expect(mockNext).toHaveBeenCalledWith(expect.any(Error));
   });
 });
