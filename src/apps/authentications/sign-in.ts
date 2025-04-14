@@ -1,4 +1,5 @@
 import { NextFunction } from 'express';
+import { BadRequestError } from '@/exceptions';
 import { setCookies } from '@/helpers/set-cookies';
 import { AuthenticationRepository } from '@/repositories';
 import { SignInRequest } from '@/requests';
@@ -14,6 +15,7 @@ import { signInSchema } from '@/validators/validations';
  *
  * @apiUse SignInRequest
  * @apiUse SignInResponse
+ * @apiUse BadRequestError
  */
 
 export default [
@@ -25,10 +27,14 @@ export default [
   ): Promise<void> {
     try {
       const repository = new AuthenticationRepository();
-      const result = await repository.signIn({
-        identifier: request.body.identifier,
-        password: request.body.password,
-      });
+      const result = await repository
+        .signIn({
+          identifier: request.body.identifier,
+          password: request.body.password,
+        })
+        .catch(() => {
+          throw new BadRequestError('Invalid identifier or password.');
+        });
       const { accessJwt, refreshJwt, did, handle } = result;
 
       setCookies(response, 'access_token', accessJwt, {
