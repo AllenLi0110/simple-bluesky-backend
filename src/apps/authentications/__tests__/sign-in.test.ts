@@ -2,6 +2,7 @@ import { ComAtprotoServerCreateSession } from '@atproto/api';
 import { ValidationError } from 'joi';
 import signIn from '../sign-in';
 import { mockSignInInput, mockSignInOutput } from '@/apps/__mocks__/common';
+import { BadRequestError } from '@/exceptions';
 import { AuthenticationRepository } from '@/repositories';
 import { SignInRequest } from '@/requests/authentication-request';
 import { SignInResponse } from '@/responses/authentication-response';
@@ -44,5 +45,20 @@ describe('SignIn Test', () => {
     );
     expect(response.json).toHaveBeenCalledTimes(1);
     expect(response.json).toHaveBeenCalledWith({ data: mockSignInOutput });
+  });
+  test('Test sign-in with incorrect data expect NotFoundError', async () => {
+    jest
+      .spyOn(AuthenticationRepository.prototype, 'signIn')
+      .mockRejectedValue(new BadRequestError());
+    const request = {
+      body: {
+        identifier: 'wrongIdentifier',
+        password: 'wrongPassword',
+      },
+    } as unknown as SignInRequest;
+    const response = {} as SignInResponse;
+    const mockNext = jest.fn();
+    await mainHandler(request, response, mockNext);
+    expect(mockNext).toHaveBeenCalledWith(expect.any(BadRequestError));
   });
 });

@@ -1,5 +1,12 @@
 import { NextFunction, Request, Response } from 'express';
 import { ValidationError as JoiValidationError } from 'joi';
+import {
+  BadRequestError,
+  CustomError,
+  ForbiddenError,
+  NotFoundError,
+  UnauthenticatedError,
+} from './exceptions';
 
 export default async function (
   error: Error,
@@ -7,13 +14,33 @@ export default async function (
   response: Response,
   next: NextFunction,
 ) {
+  let message: string = error.message || 'Unknown Error';
+  let statusCode: number = 400;
+  let details: unknown = undefined;
   try {
     console.log(request.originalUrl);
-    const statusCode = error instanceof JoiValidationError ? 422 : 400;
-    const message = error.message || 'Unknown Error';
-    response.status(statusCode).send({ error: message });
-  } catch (catchError) {
-    response.status(500).send({ error: 'Internal Server Error' });
+    console.error(error);
+    switch (error.constructor) {
+      case UnauthenticatedError: //401
+      case ForbiddenError: //403
+      case BadRequestError: //400
+      case NotFoundError: //404
+        statusCode = (error as CustomError).httpStatusCode ?? 400;
+        message = error.message;
+        break;
+      case JoiValidationError: // 422
+        statusCode = 422;
+        message = error.message;
+        details = (error as JoiValidationError).details;
+        break;
+      default:
+    }
+    response.status(statusCode).send({ error: message, details: details });
+  } catch (_error) {
+    response.status(statusCode).send({
+      error: message,
+      details: details,
+    });
   } finally {
     next();
   }
