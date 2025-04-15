@@ -27,6 +27,7 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
     "@types/jest": "^29.5.14",
+    "@types/jsonwebtoken": "^9.0.9",
     "@types/node": "^22.14.1",
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
@@ -57,7 +58,8 @@
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "joi": "^17.13.3",
-    "jose": "^6.0.10"
+    "jose": "^6.0.10",
+    "jsonwebtoken": "^9.0.2"
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",
