@@ -128,27 +128,27 @@
   dependencies:
     zod "^3.23.8"
 
-"@atproto/jwk-jose@0.1.5":
-  version "0.1.5"
-  resolved "https://registry.npmjs.org/@atproto/jwk-jose/-/jwk-jose-0.1.5.tgz"
-  integrity sha512-piYZ3ohKhRiGlD6/bZCV/Ed3lIi7CVd6txbofEHik22EkYWK0nWKoEriCUSTssSylwFzeOq2r31Ut16WcJoghw==
+"@atproto/jwk-jose@0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@atproto/jwk-jose/-/jwk-jose-0.1.6.tgz#e9fc5a714cd9fe0589f931f3b406585716b5ac03"
+  integrity sha512-r4DGMvvmazy6CxqAcnplpUxvp6Vd8UwKxQBZRpmm1aNsVonf5qj1yeDkECTiwoe/FPbvtdamlzClB3UZc7Yb5w==
   dependencies:
-    "@atproto/jwk" "0.1.4"
+    "@atproto/jwk" "0.1.5"
     jose "^5.2.0"
 
-"@atproto/jwk-webcrypto@0.1.5":
-  version "0.1.5"
-  resolved "https://registry.npmjs.org/@atproto/jwk-webcrypto/-/jwk-webcrypto-0.1.5.tgz"
-  integrity sha512-xsX8cJO6rBakLz8zNKenuKIbjoTeaiMi/ETOFFYGtlMlk1grdxDOe6OGpCmUDXaOiYWu3x5K5Hc4J9ooI/4nRg==
+"@atproto/jwk-webcrypto@0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@atproto/jwk-webcrypto/-/jwk-webcrypto-0.1.6.tgz#e35fa9a622dda4ce3b8177d6a49b216f157c0436"
+  integrity sha512-mxWHOvlg+HGohldfiaon1fNsr7iDvKrTrkV0/ZvymWRzxsDFPCon1hu8OtKLXUVgLh+IzDJT1D79I4fBSo4pog==
   dependencies:
-    "@atproto/jwk" "0.1.4"
-    "@atproto/jwk-jose" "0.1.5"
+    "@atproto/jwk" "0.1.5"
+    "@atproto/jwk-jose" "0.1.6"
     zod "^3.23.8"
 
-"@atproto/jwk@0.1.4":
-  version "0.1.4"
-  resolved "https://registry.npmjs.org/@atproto/jwk/-/jwk-0.1.4.tgz"
-  integrity sha512-dSRuEi0FbxL5ln6hEFHp5ZW01xbQH9yJi5odZaEYpcA6beZHf/bawlU12CQy/CDsbC3FxSqrBw7Q2t7mvdSBqw==
+"@atproto/jwk@0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@atproto/jwk/-/jwk-0.1.5.tgz#d1e2650431f7f09ed80be48f05908bcd136c2606"
+  integrity sha512-OzZFLhX41TOcMeanP3aZlL5bLeaUIZT15MI4aU5cwflNq/rwpGOpz3uwDjZc8ytgUjuTQ8LabSz5jMmwoTSWFg==
   dependencies:
     multiformats "^9.9.0"
     zod "^3.23.8"
@@ -164,25 +164,25 @@
     multiformats "^9.9.0"
     zod "^3.23.8"
 
-"@atproto/oauth-client-node@^0.2.14":
-  version "0.2.14"
-  resolved "https://registry.npmjs.org/@atproto/oauth-client-node/-/oauth-client-node-0.2.14.tgz"
-  integrity sha512-KDQWhkCqwVJtuBmqBLRo9sOL9Mw9SkFmCe1s+t6asdkfe1uMezvSTYCi5SIR+E4vwrYSIq2z6ZvWbc/XV3UwEQ==
+"@atproto/oauth-client-node@^0.2.15":
+  version "0.2.15"
+  resolved "https://registry.yarnpkg.com/@atproto/oauth-client-node/-/oauth-client-node-0.2.15.tgz#4561b85d1778348b4400ca1aa972304dbcdc6a9b"
+  integrity sha512-4a+YBD1+X3sUmkWQkZdSkNVSA2IzIR/Nh98PZqYH1UZiksbyMzd56hjTKpUPS43Cccy/MXHCTb0BfMDILUTwnA==
   dependencies:
     "@atproto-labs/did-resolver" "0.1.11"
     "@atproto-labs/handle-resolver-node" "0.1.14"
     "@atproto-labs/simple-store" "0.1.2"
     "@atproto/did" "0.1.5"
-    "@atproto/jwk" "0.1.4"
-    "@atproto/jwk-jose" "0.1.5"
-    "@atproto/jwk-webcrypto" "0.1.5"
-    "@atproto/oauth-client" "0.3.13"
-    "@atproto/oauth-types" "0.2.4"
+    "@atproto/jwk" "0.1.5"
+    "@atproto/jwk-jose" "0.1.6"
+    "@atproto/jwk-webcrypto" "0.1.6"
+    "@atproto/oauth-client" "0.3.14"
+    "@atproto/oauth-types" "0.2.5"
 
-"@atproto/oauth-client@0.3.13":
-  version "0.3.13"
-  resolved "https://registry.npmjs.org/@atproto/oauth-client/-/oauth-client-0.3.13.tgz"
-  integrity sha512-PqE6hWG6bhpu5OUbccoAZjoj9LQroStuPjXqkHCsnUfQGmruzuNmzMS0myLdoWCx+NSGr4sMgUPjGzAHXSLoaQ==
+"@atproto/oauth-client@0.3.14":
+  version "0.3.14"
+  resolved "https://registry.yarnpkg.com/@atproto/oauth-client/-/oauth-client-0.3.14.tgz#0ac3fb9ab150dc2563b6c03d72a35335ae1285e8"
+  integrity sha512-EO+Qe/r3wc7/BJHvJZr30f+IjpcMtacqFhwQWNVGGwPs9zYElR6jzjVU/irAkGht0n076wJ2wyp9jBJiIIVfMA==
   dependencies:
     "@atproto-labs/did-resolver" "0.1.11"
     "@atproto-labs/fetch" "0.2.2"
@@ -191,18 +191,18 @@
     "@atproto-labs/simple-store" "0.1.2"
     "@atproto-labs/simple-store-memory" "0.1.2"
     "@atproto/did" "0.1.5"
-    "@atproto/jwk" "0.1.4"
-    "@atproto/oauth-types" "0.2.4"
+    "@atproto/jwk" "0.1.5"
+    "@atproto/oauth-types" "0.2.5"
     "@atproto/xrpc" "0.6.12"
     multiformats "^9.9.0"
     zod "^3.23.8"
 
-"@atproto/oauth-types@0.2.4":
-  version "0.2.4"
-  resolved "https://registry.npmjs.org/@atproto/oauth-types/-/oauth-types-0.2.4.tgz"
-  integrity sha512-V2LnlXi1CSmBQWTQgDm8l4oN7xYxlftVwM7hrvYNP+Jxo3Ozfe0QLK1Wy/CH6/ZqzrBBhYvcbf4DJYTUwPA+hw==
+"@atproto/oauth-types@0.2.5":
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/@atproto/oauth-types/-/oauth-types-0.2.5.tgz#0092a7f48eb60cf681da361ad4c04704c56c2ec5"
+  integrity sha512-CnRNb4iLbhCv+5LaRtCSaoOg2QcQGqaatpFZbEzim/aCXenETdadrBCJo3+YyvZDHzYSy02nRVxWSm4T9e+lYw==
   dependencies:
-    "@atproto/jwk" "0.1.4"
+    "@atproto/jwk" "0.1.5"
     zod "^3.23.8"
 
 "@atproto/syntax@0.4.0", "@atproto/syntax@^0.4.0":
