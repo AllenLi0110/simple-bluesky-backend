@@ -15,6 +15,7 @@ const project = new typescript.TypeScriptProject({
     'cors',
     'joi',
     'jose',
+    'jsonwebtoken',
   ],
   // devDeps: [],             /* Build dependencies for this module. */
   devDeps: [
@@ -23,6 +24,7 @@ const project = new typescript.TypeScriptProject({
     '@types/jest',
     '@types/cookie-parser',
     '@types/cors',
+    '@types/jsonwebtoken',
 
     // Build tools
     'esbuild',

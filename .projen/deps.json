@@ -22,6 +22,10 @@
       "type": "build"
     },
     {
+      "name": "@types/jsonwebtoken",
+      "type": "build"
+    },
+    {
       "name": "@types/node",
       "type": "build"
     },
@@ -141,6 +145,10 @@
     },
     {
       "name": "jose",
+      "type": "runtime"
+    },
+    {
+      "name": "jsonwebtoken",
       "type": "runtime"
     }
   ],
