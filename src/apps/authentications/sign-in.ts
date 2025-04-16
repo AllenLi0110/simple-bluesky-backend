@@ -36,7 +36,6 @@ export default [
           throw new BadRequestError('Invalid identifier or password.');
         });
       const { accessJwt, refreshJwt, did, handle } = result;
-
       setCookies(response, 'access_token', accessJwt, {
         maxAge: 1000 * 60 * 60 * 2,
       });
@@ -49,7 +48,6 @@ export default [
       setCookies(response, 'handle', handle, {
         maxAge: 1000 * 60 * 60 * 2,
       });
-
       response.json({ data: result });
     } catch (error) {
       return next(error);
