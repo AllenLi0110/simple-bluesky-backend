@@ -45,7 +45,9 @@ describe('Status', () => {
     } as unknown as Response;
     const mockNext = jest.fn() as NextFunction;
     await mainHandler(mockRequest, mockResponse, mockNext);
-    expect(mockResponse.json).toHaveBeenCalledWith({ data: { authenticated: true } });
+    expect(mockResponse.json).toHaveBeenCalledWith({
+      data: { authenticated: true, did: payload.sub },
+    });
     expect(mockNext).not.toHaveBeenCalled();
   });
 });
