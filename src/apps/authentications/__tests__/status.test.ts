@@ -2,7 +2,6 @@ import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import status from '../status';
 import { AtpToken } from '@/definitions';
-import { BadRequestError } from '@/exceptions';
 
 const [mainHandler] = status;
 
@@ -14,8 +13,8 @@ describe('Status', () => {
     } as unknown as Response;
     const mockNext = jest.fn() as NextFunction;
     await mainHandler(mockRequest, mockResponse, mockNext);
-    expect(mockNext).toHaveBeenCalledWith(new BadRequestError('Missing access token'));
-    expect(mockResponse.json).not.toHaveBeenCalled();
+    expect(mockResponse.json).toHaveBeenCalledWith({ data: { authenticated: false } });
+    expect(mockNext).not.toHaveBeenCalled();
   });
   it('Should return authenticated false if token is invalid', async () => {
     const mockRequest = {
