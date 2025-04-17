@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import status from '../status';
-import { AtpToken } from '@/definitions';
+import status from '../get-status';
+import { AtpToken } from '@/models';
 
 const [mainHandler] = status;
 

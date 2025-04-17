@@ -1,2 +1,2 @@
 export * from './validators';
-export * from './atp-token';
+export * from './feeds';

@@ -1,18 +1,18 @@
 import { ValidationError } from 'joi';
-import post from '../post';
+import createPost from '../create-post';
 import { mockPostInput, mockPostOutput } from '@/apps/__mocks__/common';
 import { PostRepository } from '@/repositories';
-import { PostRequest } from '@/requests';
-import { PostResponse } from '@/responses';
+import { CreatePostRequest } from '@/requests';
+import { CreatePostResponse } from '@/responses';
 
-const [bodyValidator, mainHandler] = post;
+const [bodyValidator, mainHandler] = createPost;
 
-describe('Post Test', () => {
+describe('Create Post Test', () => {
   test('With correct data expect success', async () => {
     const request = {
       body: mockPostInput,
-    } as unknown as PostRequest;
-    const response = {} as PostResponse;
+    } as unknown as CreatePostRequest;
+    const response = {} as CreatePostResponse;
     const mockNext = jest.fn((error?: ValidationError | string) => {
       expect(error).toEqual(undefined);
     });
@@ -21,15 +21,14 @@ describe('Post Test', () => {
   });
   it('Should create a post and return the data', async () => {
     jest.spyOn(PostRepository, 'create').mockResolvedValue({
-      post: jest.fn().mockResolvedValue(mockPostOutput),
+      createPost: jest.fn().mockResolvedValue(mockPostOutput),
     } as unknown as PostRepository);
     const request = {
       body: mockPostInput,
-    } as unknown as PostRequest;
-
+    } as unknown as CreatePostRequest;
     const response = {
       json: jest.fn(),
-    } as unknown as PostResponse;
+    } as unknown as CreatePostResponse;
     const mockNext = jest.fn();
     await mainHandler(request, response, mockNext);
     expect(mockNext).not.toHaveBeenCalled();

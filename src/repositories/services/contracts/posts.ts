@@ -1,6 +1,6 @@
 import { AppBskyFeedPost, ComAtprotoRepoCreateRecord } from '@atproto/api';
 
-export interface PostInput {
+export interface CreatePostInput {
   /**
    * The handle or DID of the repo (aka, current account).
    */
@@ -26,5 +26,4 @@ export interface PostInput {
    */
   swapCommit?: string;
 }
-
-export type PostOutput = ComAtprotoRepoCreateRecord.OutputSchema;
+export type CreatePostOutput = ComAtprotoRepoCreateRecord.OutputSchema;

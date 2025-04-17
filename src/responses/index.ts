@@ -1,5 +1,6 @@
 export * from './authentication-response';
 export * from './post-response';
+export * from './feed-response';
 
 export interface BasicResponse {
   readonly data: any;

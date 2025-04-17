@@ -2,7 +2,7 @@ import { Response } from 'express';
 import { BasicResponse } from '.';
 
 /**
- * @apiDefine PostResponse
+ * @apiDefine CreatePostResponse
  *
  * @apiSuccess {Object} data                  The data of response.
  * @apiSuccess {String} data.uri              The URI of the post.
@@ -26,4 +26,4 @@ import { BasicResponse } from '.';
  *    }
  */
 
-export type PostResponse = Response<BasicResponse>;
+export type CreatePostResponse = Response<BasicResponse>;

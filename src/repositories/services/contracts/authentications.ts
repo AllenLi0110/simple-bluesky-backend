@@ -10,5 +10,4 @@ export interface SignInInput {
    */
   readonly password: string;
 }
-
 export type SignInOutput = ComAtprotoServerCreateSession.Response['data'];

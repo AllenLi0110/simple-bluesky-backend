@@ -1,6 +1,6 @@
 import Joi from 'joi';
 
-export const postSchema = Joi.object({
+export const createPostSchema = Joi.object({
   repo: Joi.string().required(),
   collection: Joi.string().required(),
   rkey: Joi.string().optional(),
