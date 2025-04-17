@@ -50,7 +50,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "@atproto/api": "^0.14.22",
+    "@atproto/api": "^0.15.0",
     "@atproto/oauth-client-node": "^0.2.15",
     "@types/express": "^5.0.1",
     "cookie-parser": "^1.4.7",
