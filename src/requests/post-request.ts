@@ -2,7 +2,7 @@ import { AppBskyFeedPost } from '@atproto/api';
 import { Request } from 'express';
 
 /**
- * @apiDefine PostRequest
+ * @apiDefine CreatePostRequest
  * @apiParamExample {json} Request-Example:
  *      {
  *          "repo": "did:plc:mockDid",
@@ -113,8 +113,10 @@ import { Request } from 'express';
  * @apiBody {String}   [swapCommit]                             Optional swap commit ID (for concurrency control).
  */
 
-export type PostRequest = Request<
-  never,
+export type CreatePostRequest = Request<
+  {
+    did: string;
+  },
   any,
   {
     repo: string;

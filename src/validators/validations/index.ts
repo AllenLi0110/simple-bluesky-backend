@@ -1,2 +1,3 @@
 export * from './authentications';
-export * from './post';
+export * from './posts';
+export * from './feeds';

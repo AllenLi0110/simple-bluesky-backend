@@ -5,8 +5,8 @@ import express, { Router } from 'express';
 import errorHandler from './error-handler';
 import { RepositoryFactory } from './repositories';
 import authenticationsRouter from '@/apps/authentications';
+import feedsRouter from '@/apps/feeds';
 import postRouter from '@/apps/posts';
-
 
 dotenv.config();
 
@@ -78,5 +78,5 @@ class APIService {
 
 export const apiService = new APIService();
 
-apiService.addRouters([authenticationsRouter, postRouter]);
+apiService.addRouters([authenticationsRouter, postRouter, feedsRouter]);
 apiService.use([errorHandler]);

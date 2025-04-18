@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import { decodeJwt } from 'jose';
-import { AtpToken } from '@/definitions';
+import { AtpToken } from '@/models';
 
 export const verifyDid = async function (
   request: Request,

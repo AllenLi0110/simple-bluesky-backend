@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
-import { AtpToken } from '@/definitions';
+import { AtpToken } from '@/models';
 
 /**
  * @api {get} /authentications/status Status

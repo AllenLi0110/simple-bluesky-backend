@@ -1,26 +1,30 @@
 import { NextFunction } from 'express';
 import { PostRepository } from '@/repositories';
-import { PostRequest } from '@/requests';
-import { PostResponse } from '@/responses';
+import { CreatePostRequest } from '@/requests';
+import { CreatePostResponse } from '@/responses';
 import Validator from '@/validators';
-import { postSchema } from '@/validators/validations';
+import { createPostSchema } from '@/validators/validations';
 
 /**
- * @api {post} /did/{:did}/posts Post
+ * @api {post} /dids/{:did}/posts Post
  * @apiName Post
  * @apiDescription Post
  * @apiGroup Posts
  *
- * @apiUse PostRequest
- * @apiUse PostResponse
+ * @apiUse CreatePostRequest
+ * @apiUse CreatePostResponse
  */
 
 export default [
-  Validator.body(postSchema.required()),
-  async function (request: PostRequest, response: PostResponse, next: NextFunction): Promise<void> {
+  Validator.body(createPostSchema.required()),
+  async function (
+    request: CreatePostRequest,
+    response: CreatePostResponse,
+    next: NextFunction,
+  ): Promise<void> {
     try {
       const repository = await PostRepository.create(request);
-      const result = await repository.post({
+      const result = await repository.createPost({
         repo: request.body.repo,
         collection: request.body.collection,
         rkey: request.body.rkey,

@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import createPost from './create-post';
+import listFeeds from './list-feeds';
 import { verifyDid } from '@middlewares/verify-did';
 
 const router = Router({});
 
-router.post('/dids/:did/posts', verifyDid, ...createPost);
+router.get('/dids/:did/feeds', verifyDid, ...listFeeds);
 
 export default router;
