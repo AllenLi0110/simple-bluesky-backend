@@ -1,7 +1,10 @@
 import { NextFunction } from 'express';
+import { JobType } from '@/definitions/queues';
 import { BadRequestError } from '@/exceptions';
 import { setCookies } from '@/helpers/set-cookies';
 import { AuthenticationRepository } from '@/repositories';
+import RepositoryFactory from '@/repositories/repository-factory';
+import QueueRepository from '@/repositories/services/queue-repository';
 import { SignInRequest } from '@/requests';
 import { SignInResponse } from '@/responses';
 import Validator from '@/validators';
@@ -35,6 +38,7 @@ export default [
         .catch(() => {
           throw new BadRequestError('Invalid identifier or password.');
         });
+
       const { accessJwt, refreshJwt, did, handle } = result;
       setCookies(response, 'access_token', accessJwt, {
         maxAge: 1000 * 60 * 60 * 2,
@@ -48,6 +52,23 @@ export default [
       setCookies(response, 'handle', handle, {
         maxAge: 1000 * 60 * 60 * 2,
       });
+
+      const data = `The ${result.email} sign in the Simple Bluesky.`;
+      const jobType = JobType.SendNotification;
+      const repositoryFactory = new RepositoryFactory();
+      const queueRepository = repositoryFactory.create(QueueRepository);
+
+      await queueRepository.createJobs({
+        jobs: [
+          {
+            jobType,
+            parameters: {
+              data,
+            },
+          },
+        ],
+      });
+
       response.json({ data: result });
     } catch (error) {
       return next(error);
