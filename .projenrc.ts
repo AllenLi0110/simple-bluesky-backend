@@ -11,11 +11,16 @@ const project = new typescript.TypeScriptProject({
     '@atproto/api',
     '@atproto/oauth-client-node',
     'dotenv',
+    'axios',
+    // Middleware dependencies
     'cookie-parser',
     'cors',
+    // Validation and Security
     'joi',
     'jose',
     'jsonwebtoken',
+    // Queue
+    'amqplib',
   ],
   // devDeps: [],             /* Build dependencies for this module. */
   devDeps: [
@@ -25,6 +30,8 @@ const project = new typescript.TypeScriptProject({
     '@types/cookie-parser',
     '@types/cors',
     '@types/jsonwebtoken',
+    '@types/amqplib',
+    '@types/axios',
 
     // Build tools
     'esbuild',

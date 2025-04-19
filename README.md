@@ -17,6 +17,7 @@ A simple backend application for interacting with Bluesky, a decentralized socia
 |  ├── helpers
 |  ├── middlewares
 |  ├── models
+|  ├── queues
 |  ├── repositories
 |  ├── requests
 |  ├── responses
@@ -25,6 +26,7 @@ A simple backend application for interacting with Bluesky, a decentralized socia
 |  ├── validators
 |  |  └── resources
 |  |  └── schemas
+|  └── queue-server.ts
 |  └── api-server.ts
 |  └── error-handler.ts
 |  └── index.ts

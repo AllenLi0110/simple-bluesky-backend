@@ -6,6 +6,14 @@
       "type": "build"
     },
     {
+      "name": "@types/amqplib",
+      "type": "build"
+    },
+    {
+      "name": "@types/axios",
+      "type": "build"
+    },
+    {
       "name": "@types/cookie-parser",
       "type": "build"
     },
@@ -121,6 +129,14 @@
     },
     {
       "name": "@types/express",
+      "type": "runtime"
+    },
+    {
+      "name": "amqplib",
+      "type": "runtime"
+    },
+    {
+      "name": "axios",
       "type": "runtime"
     },
     {
