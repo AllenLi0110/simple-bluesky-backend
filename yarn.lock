@@ -164,9 +164,9 @@
     multiformats "^9.9.0"
     zod "^3.23.8"
 
-"@atproto/oauth-client-node@^0.2.15":
+"@atproto/oauth-client-node@^0.2.16":
   version "0.2.16"
-  resolved "https://registry.npmjs.org/@atproto/oauth-client-node/-/oauth-client-node-0.2.16.tgz"
+  resolved "https://registry.yarnpkg.com/@atproto/oauth-client-node/-/oauth-client-node-0.2.16.tgz#9249aeddd2382ed23b405edee666cad5ce976b83"
   integrity sha512-KHbDd2tv0FS3uVyCAX/yUnxpiM0fcO44GzR8pglZ+c8l2ErdwEx/in9Ji5sg1GlIr6vY244ffSMR7SotUtXtXw==
   dependencies:
     "@atproto-labs/did-resolver" "0.1.12"

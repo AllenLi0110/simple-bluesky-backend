@@ -49,7 +49,3 @@ junit.xml
 /dist/
 !/.eslintrc.json
 !/.projenrc.ts
-.env
-.env.local
-.env.*
-*.env
