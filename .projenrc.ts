@@ -11,11 +11,16 @@ const project = new typescript.TypeScriptProject({
     '@atproto/api',
     '@atproto/oauth-client-node',
     'dotenv',
+    'axios',
+    // Middleware dependencies
     'cookie-parser',
     'cors',
+    // Validation and Security
     'joi',
     'jose',
     'jsonwebtoken',
+    // Queue
+    'amqplib',
   ],
   // devDeps: [],             /* Build dependencies for this module. */
   devDeps: [
@@ -25,6 +30,8 @@ const project = new typescript.TypeScriptProject({
     '@types/cookie-parser',
     '@types/cors',
     '@types/jsonwebtoken',
+    '@types/amqplib',
+    '@types/axios',
 
     // Build tools
     'esbuild',
@@ -71,7 +78,7 @@ const project = new typescript.TypeScriptProject({
     },
     include: ['src/**/*.ts', 'src/types'],
   },
-  gitignore: ['.DS_Store'],
+  gitignore: ['.DS_Store', '.env', '.env.local', '.env.*', '*.env'],
 });
 project.addTask('dev', {
   exec: 'node esbuild.mjs && node dist/index.js',
