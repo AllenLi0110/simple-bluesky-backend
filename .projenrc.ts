@@ -23,6 +23,8 @@ const project = new typescript.TypeScriptProject({
     'amqplib',
     // Monitoring
     'prom-client',
+    // Logging
+    'winston',
   ],
   // devDeps: [],             /* Build dependencies for this module. */
   devDeps: [
@@ -34,6 +36,7 @@ const project = new typescript.TypeScriptProject({
     '@types/jsonwebtoken',
     '@types/amqplib',
     '@types/axios',
+    '@types/winston',
 
     // Build tools
     'esbuild',

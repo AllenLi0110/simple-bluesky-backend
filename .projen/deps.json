@@ -38,6 +38,10 @@
       "type": "build"
     },
     {
+      "name": "@types/winston",
+      "type": "build"
+    },
+    {
       "name": "@typescript-eslint/eslint-plugin",
       "version": "^8",
       "type": "build"
@@ -169,6 +173,10 @@
     },
     {
       "name": "prom-client",
+      "type": "runtime"
+    },
+    {
+      "name": "winston",
       "type": "runtime"
     }
   ],

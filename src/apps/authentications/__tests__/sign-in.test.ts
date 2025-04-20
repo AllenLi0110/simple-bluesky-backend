@@ -9,6 +9,14 @@ import QueueRepository from '@/repositories/services/queue-repository';
 import { SignInRequest } from '@/requests/authentication-request';
 import { SignInResponse } from '@/responses/authentication-response';
 
+jest.mock('@/utils/logger', () => ({
+  __esModule: true,
+  default: {
+    info: jest.fn(),
+    error: jest.fn(),
+  },
+}));
+
 jest.mock('@/queue-server', () => {
   const mockQueueService = {
     connect: jest.fn().mockResolvedValue(undefined),
@@ -40,6 +48,15 @@ jest.mock('@/repositories/repository-factory', () => {
 
 const [bodyValidator, mainHandler] = signIn;
 
+const createMockRequest = (body: any) =>
+  ({
+    body,
+    ip: '127.0.0.1',
+    headers: {
+      'user-agent': 'test-user-agent',
+    },
+  }) as unknown as SignInRequest;
+
 describe('SignIn Test', () => {
   let mockRepositoryFactory: InstanceType<typeof RepositoryFactory>;
 
@@ -53,9 +70,7 @@ describe('SignIn Test', () => {
   });
 
   test('With correct data expect success', async () => {
-    const request = {
-      body: mockSignInInput,
-    } as unknown as SignInRequest;
+    const request = createMockRequest(mockSignInInput);
     const response = {} as SignInResponse;
     const mockNext = jest.fn((error?: ValidationError | string) => {
       expect(error).toEqual(undefined);
@@ -73,7 +88,7 @@ describe('SignIn Test', () => {
 
     const mockCookie = jest.fn();
     const request = {
-      body: mockSignInInput,
+      ...createMockRequest(mockSignInInput),
       repositoryFactory: mockRepositoryFactory,
     } as unknown as SignInRequest;
     const response = {
@@ -107,12 +122,10 @@ describe('SignIn Test', () => {
     jest
       .spyOn(AuthenticationRepository.prototype, 'signIn')
       .mockRejectedValue(new BadRequestError());
-    const request = {
-      body: {
-        identifier: 'wrongIdentifier',
-        password: 'wrongPassword',
-      },
-    } as unknown as SignInRequest;
+    const request = createMockRequest({
+      identifier: 'wrongIdentifier',
+      password: 'wrongPassword',
+    });
     const response = {} as SignInResponse;
     const mockNext = jest.fn();
     await mainHandler(request, response, mockNext);
