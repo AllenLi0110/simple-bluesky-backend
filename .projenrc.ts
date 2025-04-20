@@ -78,7 +78,7 @@ const project = new typescript.TypeScriptProject({
     },
     include: ['src/**/*.ts', 'src/types'],
   },
-  gitignore: ['.DS_Store'],
+  gitignore: ['.DS_Store', '.env', '.env.local', '.env.*', '*.env'],
 });
 project.addTask('dev', {
   exec: 'node esbuild.mjs && node dist/index.js',

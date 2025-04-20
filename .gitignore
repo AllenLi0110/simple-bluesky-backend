@@ -31,6 +31,10 @@ jspm_packages/
 .yarn-integrity
 .cache
 .DS_Store
+.env
+.env.local
+.env.*
+*.env
 /test-reports/
 junit.xml
 /coverage/
