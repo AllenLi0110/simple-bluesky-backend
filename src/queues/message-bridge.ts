@@ -26,7 +26,7 @@ export default class messageBridge {
       await axios.post(this.webhookUrl, {
         text: message,
       });
-      console.log('Notification sent to Slack');
+      console.log('Notification sent to Slack:', message);
     } catch (error) {
       console.error('Error sending notification to Slack:', error);
     }
