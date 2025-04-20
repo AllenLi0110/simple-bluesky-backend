@@ -57,10 +57,46 @@ cd simple-bluesky-backend
 npm install
 ```
 
-4. Run the development server:
+4. Start RabbitMQ using Docker:
+
+```
+docker compose up -d rabbitmq
+```
+
+5. Start the services:
+
+API Server:
 
 ```
 npm run dev
 ```
 
-5. Open the app in your browser at http://localhost:8080.
+Queue Service:
+
+```
+SERVICE_TYPE=queue-service npm run dev
+```
+
+The application will be available at http://localhost:8080, and RabbitMQ management interface at http://localhost:15672 (admin/admin).
+
+## Running the Services
+
+### API Server
+
+```bash
+npm run dev
+```
+
+### Queue Service
+
+```bash
+SERVICE_TYPE=queue-service npm run dev
+```
+
+The queue service will start and connect to RabbitMQ automatically. You should see the following messages:
+
+```
+Start Queue Service
+Successfully connected to RabbitMQ
+Notification consumer started successfully
+```
