@@ -42,25 +42,25 @@ A simple backend application for interacting with Bluesky, a decentralized socia
 1. Clone the repository:
 
 ```
-git clone git@github.com:AllenLi0110/simple-bluesky-backend.git
+$ git clone git@github.com:AllenLi0110/simple-bluesky-backend.git
 ```
 
 2. Navigate into the project folder:
 
 ```
-cd simple-bluesky-backend
+$ cd simple-bluesky-backend
 ```
 
 3. Install dependencies:
 
 ```
-npm install
+$ npm install
 ```
 
 4. Start RabbitMQ using Docker:
 
 ```
-docker compose up -d rabbitmq
+$ docker compose up -d rabbitmq
 ```
 
 5. Start the services:
@@ -68,13 +68,13 @@ docker compose up -d rabbitmq
 API Server:
 
 ```
-npm run dev
+$ npm run dev
 ```
 
 Queue Service:
 
 ```
-SERVICE_TYPE=queue-service npm run dev
+$ SERVICE_TYPE=queue-service npm run dev
 ```
 
 The application will be available at http://localhost:8080, and RabbitMQ management interface at http://localhost:15672 (admin/admin).
@@ -83,14 +83,14 @@ The application will be available at http://localhost:8080, and RabbitMQ managem
 
 ### API Server
 
-```bash
-npm run dev
+```
+$ npm run dev
 ```
 
 ### Queue Service
 
-```bash
-SERVICE_TYPE=queue-service npm run dev
+```
+$ SERVICE_TYPE=queue-service npm run dev
 ```
 
 The queue service will start and connect to RabbitMQ automatically. You should see the following messages:
