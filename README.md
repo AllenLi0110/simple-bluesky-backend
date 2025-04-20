@@ -57,29 +57,18 @@ $ cd simple-bluesky-backend
 $ npm install
 ```
 
-4. Start RabbitMQ using Docker:
+4. Start RabbitMQ, Grafana, and Prometheus using Docker:
 
 ```
-$ docker compose up -d rabbitmq
+$ docker-compose up -d
+
+[+] Running 3/3
+ ✔ Container prometheus  Start...
+ ✔ Container rabbitmq    Start...
+ ✔ Container grafana     Start...
 ```
 
 5. Start the services:
-
-API Server:
-
-```
-$ npm run dev
-```
-
-Queue Service:
-
-```
-$ SERVICE_TYPE=queue-service npm run dev
-```
-
-The application will be available at http://localhost:8080, and RabbitMQ management interface at http://localhost:15672 (admin/admin).
-
-## Running the Services
 
 ### API Server
 
@@ -87,11 +76,17 @@ The application will be available at http://localhost:8080, and RabbitMQ managem
 $ npm run dev
 ```
 
-### Queue Service
+The application will be available at http://localhost:8080.
+
+Queue Service:
 
 ```
 $ SERVICE_TYPE=queue-service npm run dev
 ```
+
+The RabbitMQ management: http://localhost:15672 (admin/admin).
+The grafana: http://localhost:3000 (admin/admin).
+The Prometheus: http://localhost:9090
 
 The queue service will start and connect to RabbitMQ automatically. You should see the following messages:
 

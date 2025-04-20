@@ -3,6 +3,7 @@ import cors from 'cors';
 import * as dotenv from 'dotenv';
 import express, { Router } from 'express';
 import errorHandler from './error-handler';
+import { metricsMiddleware, setupMetricsRoute } from './monitoring/metrics';
 import { RepositoryFactory } from './repositories';
 import authenticationsRouter from '@/apps/authentications';
 import feedsRouter from '@/apps/feeds';
@@ -34,6 +35,7 @@ class APIService {
 
   constructor() {
     this.app = express();
+    this.app.use(metricsMiddleware);
     this.app.use(
       cors({
         origin: process.env.WEB_APP_DOMAIN || 'http://localhost:5173' || 'http://localhost:8080',
@@ -42,6 +44,7 @@ class APIService {
     );
     this.app.use(express.json());
     this.app.use(cookieParser());
+    setupMetricsRoute(this.app);
     this.app.get('/', (_req, res) => {
       res.send('OK');
     });
@@ -72,6 +75,7 @@ class APIService {
   public start(): void {
     this.app.listen(this.port, () => {
       console.log(`Server is running at http://localhost:${this.port}`);
+      console.log(`Metrics available at http://localhost:${this.port}/metrics`);
     });
   }
 }

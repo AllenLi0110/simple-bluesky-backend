@@ -21,6 +21,8 @@ const project = new typescript.TypeScriptProject({
     'jsonwebtoken',
     // Queue
     'amqplib',
+    // Monitoring
+    'prom-client',
   ],
   // devDeps: [],             /* Build dependencies for this module. */
   devDeps: [
