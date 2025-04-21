@@ -23,6 +23,17 @@ const project = new typescript.TypeScriptProject({
     'amqplib',
     // Monitoring
     'prom-client',
+    // OpenTelemetry
+    '@opentelemetry/api',
+    '@opentelemetry/sdk-node',
+    '@opentelemetry/auto-instrumentations-node',
+    '@opentelemetry/exporter-trace-otlp-http',
+    '@opentelemetry/sdk-metrics',
+    '@opentelemetry/exporter-metrics-otlp-http',
+    '@opentelemetry/instrumentation-http',
+    '@opentelemetry/instrumentation-express',
+    '@opentelemetry/resources',
+    '@opentelemetry/semantic-conventions',
     // Logging
     'winston',
   ],
