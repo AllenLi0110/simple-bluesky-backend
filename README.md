@@ -2,8 +2,6 @@
 
 A simple backend application for interacting with Bluesky, a decentralized social network protocol. This project provides a clean and user-friendly interface for managing posts, follows, and user interactions.
 
-A robust backend application for interacting with [Bluesky](https://bsky.app), a decentralized social network protocol built on the AT Protocol. This project provides a comprehensive API and service infrastructure for managing posts, follows, user interactions, and application-specific features.
-
 ## 📋 Overview
 
 Simple Bluesky Backend is designed with a microservices architecture, featuring:
@@ -27,12 +25,12 @@ simple-bluesky-backend/
 │   └── promtail/            # Promtail log collection configuration
 ├── src/                     # Source code
 │   ├── apps/                # Application modules
-│   ├── collections/         # Data collections and schemas
 │   ├── definitions/         # Type definitions and constants
 │   ├── exceptions/          # Custom exception classes
 │   ├── helpers/             # Helper functions
 │   ├── middlewares/         # Express middlewares
 │   ├── models/              # Data models
+│   ├── monitoring/          # Metrics and tracing
 │   ├── queues/              # Queue processors and consumers
 │   ├── repositories/        # Data access layer
 │   ├── requests/            # Request models and validation
@@ -43,9 +41,9 @@ simple-bluesky-backend/
 │   │   ├── resources/       # Validation resources
 │   │   └── schemas/         # Validation schemas
 │   ├── api-server.ts        # API server entry point
-│   ├── queue-server.ts      # Queue service entry point
 │   ├── error-handler.ts     # Global error handling
-│   └── index.ts             # Main application entry point
+│   ├── index.ts             # Main application entry point
+│   └── queue-server.ts      # Queue service entry point
 ├── .prettierrc              # Prettier configuration
 ├── .projenrc.ts             # Projen project configuration
 ├── docker-compose.yml       # Docker Compose services definition
@@ -138,12 +136,6 @@ Run the test suite:
 
 ```bash
 npm test
-```
-
-Run tests in watch mode during development:
-
-```bash
-npm run test:watch
 ```
 
 ## 🛠️ Development
