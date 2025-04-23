@@ -12,7 +12,7 @@ export default async function (
   error: Error,
   request: Request,
   response: Response,
-  next: NextFunction
+  next: NextFunction,
 ) {
   let message: string = error.message || 'Unknown Error';
   let statusCode: number = 400;
