@@ -59,6 +59,10 @@ services:
       - '14269:14269' # Admin port
     environment:
       - COLLECTOR_OTLP_ENABLED=true
+      - COLLECTOR_ZIPKIN_HOST_PORT=:9411
+      - SPAN_STORAGE_TYPE=memory
+      - COLLECTOR_DEBUG=true
+      - LOG_LEVEL=debug
     restart: unless-stopped
 
   loki:

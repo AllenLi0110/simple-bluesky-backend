@@ -8,14 +8,27 @@ dotenv.config();
 const OTLP_ENDPOINT = process.env.OTLP_ENDPOINT || 'http://localhost:4318';
 const SERVICE_NAME = process.env.SERVICE_NAME || 'simple-bluesky-backend';
 
+console.log(`Initializing tracing with endpoint: ${OTLP_ENDPOINT}`);
+console.log(`Service name: ${SERVICE_NAME}`);
+
+const exporter = new OTLPTraceExporter({
+  url: `${OTLP_ENDPOINT}/v1/traces`,
+  headers: {},
+});
+
 const sdk = new NodeSDK({
-  traceExporter: new OTLPTraceExporter({
-    url: `${OTLP_ENDPOINT}/v1/traces`,
-  }),
+  serviceName: SERVICE_NAME,
+  traceExporter: exporter,
   instrumentations: [
     getNodeAutoInstrumentations({
       '@opentelemetry/instrumentation-express': { enabled: true },
-      '@opentelemetry/instrumentation-http': { enabled: true },
+      '@opentelemetry/instrumentation-http': {
+        enabled: true,
+        ignoreIncomingRequestHook: (req) => {
+          console.log(`Tracing request: ${req.method} ${req.url}`);
+          return false;
+        },
+      },
     }),
   ],
 });
