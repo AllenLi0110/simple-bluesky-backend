@@ -38,6 +38,10 @@
       "type": "build"
     },
     {
+      "name": "@types/winston",
+      "type": "build"
+    },
+    {
       "name": "@typescript-eslint/eslint-plugin",
       "version": "^8",
       "type": "build"
@@ -128,6 +132,46 @@
       "type": "runtime"
     },
     {
+      "name": "@opentelemetry/api",
+      "type": "runtime"
+    },
+    {
+      "name": "@opentelemetry/auto-instrumentations-node",
+      "type": "runtime"
+    },
+    {
+      "name": "@opentelemetry/exporter-metrics-otlp-http",
+      "type": "runtime"
+    },
+    {
+      "name": "@opentelemetry/exporter-trace-otlp-http",
+      "type": "runtime"
+    },
+    {
+      "name": "@opentelemetry/instrumentation-express",
+      "type": "runtime"
+    },
+    {
+      "name": "@opentelemetry/instrumentation-http",
+      "type": "runtime"
+    },
+    {
+      "name": "@opentelemetry/resources",
+      "type": "runtime"
+    },
+    {
+      "name": "@opentelemetry/sdk-metrics",
+      "type": "runtime"
+    },
+    {
+      "name": "@opentelemetry/sdk-node",
+      "type": "runtime"
+    },
+    {
+      "name": "@opentelemetry/semantic-conventions",
+      "type": "runtime"
+    },
+    {
       "name": "@types/express",
       "type": "runtime"
     },
@@ -165,6 +209,14 @@
     },
     {
       "name": "jsonwebtoken",
+      "type": "runtime"
+    },
+    {
+      "name": "prom-client",
+      "type": "runtime"
+    },
+    {
+      "name": "winston",
       "type": "runtime"
     }
   ],

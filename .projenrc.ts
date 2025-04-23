@@ -21,6 +21,21 @@ const project = new typescript.TypeScriptProject({
     'jsonwebtoken',
     // Queue
     'amqplib',
+    // Monitoring
+    'prom-client',
+    // OpenTelemetry
+    '@opentelemetry/api',
+    '@opentelemetry/sdk-node',
+    '@opentelemetry/auto-instrumentations-node',
+    '@opentelemetry/exporter-trace-otlp-http',
+    '@opentelemetry/sdk-metrics',
+    '@opentelemetry/exporter-metrics-otlp-http',
+    '@opentelemetry/instrumentation-http',
+    '@opentelemetry/instrumentation-express',
+    '@opentelemetry/resources',
+    '@opentelemetry/semantic-conventions',
+    // Logging
+    'winston',
   ],
   // devDeps: [],             /* Build dependencies for this module. */
   devDeps: [
@@ -32,6 +47,7 @@ const project = new typescript.TypeScriptProject({
     '@types/jsonwebtoken',
     '@types/amqplib',
     '@types/axios',
+    '@types/winston',
 
     // Build tools
     'esbuild',

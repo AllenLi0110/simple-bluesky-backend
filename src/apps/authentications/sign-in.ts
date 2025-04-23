@@ -7,6 +7,7 @@ import RepositoryFactory from '@/repositories/repository-factory';
 import QueueRepository from '@/repositories/services/queue-repository';
 import { SignInRequest } from '@/requests';
 import { SignInResponse } from '@/responses';
+import logger from '@/utils/logger';
 import Validator from '@/validators';
 import { signInSchema } from '@/validators/validations';
 
@@ -35,7 +36,13 @@ export default [
           identifier: request.body.identifier,
           password: request.body.password,
         })
-        .catch(() => {
+        .catch((error) => {
+          logger.error('Login failed', {
+            identifier: request.body.identifier,
+            ip: request.ip,
+            userAgent: request.headers['user-agent'],
+            error: error.message,
+          });
           throw new BadRequestError('Invalid identifier or password.');
         });
 
