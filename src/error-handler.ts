@@ -12,7 +12,7 @@ export default async function (
   error: Error,
   request: Request,
   response: Response,
-  next: NextFunction,
+  next: NextFunction
 ) {
   let message: string = error.message || 'Unknown Error';
   let statusCode: number = 400;
@@ -22,8 +22,8 @@ export default async function (
     console.error(error);
     switch (error.constructor) {
       case UnauthenticatedError: //401
-      case ForbiddenError: //403
       case BadRequestError: //400
+      case ForbiddenError: //403
       case NotFoundError: //404
         statusCode = (error as CustomError).httpStatusCode ?? 400;
         message = error.message;

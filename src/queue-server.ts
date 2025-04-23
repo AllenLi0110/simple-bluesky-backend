@@ -13,7 +13,6 @@ export class QueueService {
 
   constructor() {
     this.rabbitmqUrl = process.env.RABBITMQ_URL || 'amqp://localhost';
-    // Connect when service is instantiated
     this.connect().catch((err) => console.error('Initial connection failed:', err));
   }
 
@@ -71,7 +70,7 @@ export class QueueService {
         this.exchangeName,
         'bluesky.task',
         Buffer.from(JSON.stringify(message)),
-        { persistent: true },
+        { persistent: true }
       );
     } catch (error) {
       console.error('Error publishing message:', error);
