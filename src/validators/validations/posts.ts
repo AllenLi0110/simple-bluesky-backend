@@ -1,5 +1,5 @@
+import { AtProtoPost } from '@/definitions';
 import Joi from 'joi';
-import { AtProtoPost } from '@/definitions/posts';
 
 export const createPostSchema = Joi.object({
   repo: Joi.string().required(),
@@ -24,7 +24,7 @@ export const createPostSchema = Joi.object({
           }).required(),
           type: Joi.string().valid('mention', 'link').required(),
           value: Joi.string().required(),
-        }),
+        })
       )
       .optional(),
     facets: Joi.array().items(Joi.object()).optional(),
