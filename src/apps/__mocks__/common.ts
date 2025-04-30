@@ -39,7 +39,7 @@ export const mockSignInOutput = {
   },
 };
 
-export const mockPostInput = {
+export const mockCreatePostInput = {
   repo: 'mockRepo',
   collection: 'app.bsky.feed.post',
   rkey: 'mockRkey',
@@ -51,7 +51,7 @@ export const mockPostInput = {
     createdAt: '2025-04-11T17:05:51.782Z',
   },
 };
-export const mockPostOutput = {
+export const mockCreatePostOutput = {
   data: {
     uri: 'at://did:plc:mockDid/app.bsky.feed.post/mockRkey',
     cid: 'mockCid',
@@ -106,4 +106,19 @@ export const mockListFeedsOutput = {
       },
     },
   ],
+};
+
+export const mockDeletePostInput = {
+  repo: 'mockRepo',
+  collection: 'app.bsky.feed.post',
+  rkey: 'mockRkey',
+};
+
+export const mockDeletePostOutput = {
+  data: {
+    commit: {
+      cid: 'mockCid',
+      rev: 'mockRev',
+    },
+  },
 };

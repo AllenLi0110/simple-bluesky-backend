@@ -25,5 +25,17 @@ import { BasicResponse } from '.';
  *      }
  *    }
  */
-
 export type CreatePostResponse = Response<BasicResponse>;
+
+/**
+ * @apiDefine DeletePostResponse
+ *
+ * @apiSuccess {Object} data                  The data of response.
+ * @apiSuccess {String} data.uri              The URI of the post.
+ *
+ * @apiSuccessExample {json} Success-Response: HTTP/1.1 200 OK
+ *    {
+ *      "data": {}
+ *    }
+ */
+export type DeletePostResponse = Response<BasicResponse>;
