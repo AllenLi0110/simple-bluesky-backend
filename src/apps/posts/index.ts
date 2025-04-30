@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import createPost from './create-post';
-import { verifyDid } from '@middlewares/verify-did';
 import deletePost from './delete-post';
+import { verifyDid } from '@middlewares/verify-did';
 
 const router = Router({});
 

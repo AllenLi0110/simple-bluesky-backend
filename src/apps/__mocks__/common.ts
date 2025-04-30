@@ -19,9 +19,9 @@ export const mockSignInOutput = {
       'https://w3id.org/security/multikey/v1',
       'https://w3id.org/security/suites/secp256k1-2019/v1',
     ],
-    'id': 'mockDid',
-    'alsoKnownAs': ['at://mock-handle.bsky.social'],
-    'verificationMethod': [
+    id: 'mockDid',
+    alsoKnownAs: ['at://mock-handle.bsky.social'],
+    verificationMethod: [
       {
         id: 'mockDid#atproto',
         type: 'Multikey',
@@ -29,7 +29,7 @@ export const mockSignInOutput = {
         publicKeyMultibase: 'mockPublicKey',
       },
     ],
-    'service': [
+    service: [
       {
         id: '#atproto_pds',
         type: 'AtprotoPersonalDataServer',

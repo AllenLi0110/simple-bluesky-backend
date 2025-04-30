@@ -1,11 +1,6 @@
 {
   "dependencies": [
     {
-      "name": "@stylistic/eslint-plugin",
-      "version": "^2",
-      "type": "build"
-    },
-    {
       "name": "@types/amqplib",
       "type": "build"
     },

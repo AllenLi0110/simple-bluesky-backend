@@ -20,7 +20,7 @@ export default [
   async function (
     request: DeletePostRequest,
     response: DeletePostResponse,
-    next: NextFunction
+    next: NextFunction,
   ): Promise<void> {
     try {
       const repository = await PostRepository.create(request);

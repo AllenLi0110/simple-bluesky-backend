@@ -146,6 +146,7 @@ export type CreatePostRequest = Request<
 export type DeletePostRequest = Request<
   {
     did: string;
+    rkey: string;
   },
   any,
   {

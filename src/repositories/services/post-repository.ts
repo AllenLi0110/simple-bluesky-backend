@@ -21,7 +21,7 @@ export default class PostRepository extends AtpRepository {
         validate,
         swapCommit,
       },
-      record
+      record,
     );
     return data;
   }
