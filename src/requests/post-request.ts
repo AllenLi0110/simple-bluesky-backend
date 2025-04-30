@@ -128,3 +128,31 @@ export type CreatePostRequest = Request<
   },
   never
 >;
+
+/**
+ * @apiDefine DeletePostRequest
+ * @apiParamExample {json} Request-Example:
+ *      {
+ *          "repo": "did:plc:mockDid",
+ *          "collection": "app.bsky.feed.post",
+ *          "rkey": "mockRkey"
+ *      }
+ *
+ * @apiBody {String}   repo                                     The DID of the repository (user).
+ * @apiBody {String}   collection                               The NSID of the record type (e.g., app.bsky.feed.post).
+ * @apiBody {String}   rkey                                     The record key.
+ */
+
+export type DeletePostRequest = Request<
+  {
+    did: string;
+    rkey: string;
+  },
+  any,
+  {
+    repo: string;
+    collection: string;
+    rkey: string;
+  },
+  never
+>;

@@ -1,4 +1,8 @@
-import { AppBskyFeedPost, ComAtprotoRepoCreateRecord } from '@atproto/api';
+import {
+  AppBskyFeedPost,
+  ComAtprotoRepoCreateRecord,
+  ComAtprotoRepoDeleteRecord,
+} from '@atproto/api';
 
 export interface CreatePostInput {
   /**
@@ -27,3 +31,10 @@ export interface CreatePostInput {
   swapCommit?: string;
 }
 export type CreatePostOutput = ComAtprotoRepoCreateRecord.OutputSchema;
+
+export interface DeletePostInput {
+  repo: string;
+  collection: string;
+  rkey: string;
+}
+export type DeletePostOutput = ComAtprotoRepoDeleteRecord.OutputSchema;

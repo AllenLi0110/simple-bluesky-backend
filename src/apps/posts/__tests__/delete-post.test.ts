@@ -1,40 +1,40 @@
 import { ValidationError } from 'joi';
-import createPost from '../create-post';
-import { mockCreatePostInput, mockCreatePostOutput } from '@/apps/__mocks__/common';
+import deletePost from '../delete-post';
+import { mockDeletePostInput, mockDeletePostOutput } from '@/apps/__mocks__/common';
 import { PostRepository } from '@/repositories';
-import { CreatePostRequest } from '@/requests';
-import { CreatePostResponse } from '@/responses';
+import { DeletePostRequest } from '@/requests';
+import { DeletePostResponse } from '@/responses';
 
-const [bodyValidator, mainHandler] = createPost;
+const [bodyValidator, mainHandler] = deletePost;
 
-describe('Create Post Test', () => {
+describe('Delete Post Test', () => {
   test('With correct data expect success', async () => {
     const request = {
-      body: mockCreatePostInput,
-    } as unknown as CreatePostRequest;
-    const response = {} as CreatePostResponse;
+      body: mockDeletePostInput,
+    } as unknown as DeletePostRequest;
+    const response = {} as DeletePostResponse;
     const mockNext = jest.fn((error?: ValidationError | string) => {
       expect(error).toEqual(undefined);
     });
     await bodyValidator(request, response, mockNext);
     expect(mockNext).toHaveBeenCalled();
   });
-  it('Should create a post and return the data', async () => {
+  test('Should delete a post and return the data', async () => {
     jest.spyOn(PostRepository, 'create').mockResolvedValue({
-      createPost: jest.fn().mockResolvedValue(mockCreatePostOutput),
+      deletePost: jest.fn().mockResolvedValue(mockDeletePostOutput),
     } as unknown as PostRepository);
     const request = {
-      body: mockCreatePostInput,
-    } as unknown as CreatePostRequest;
+      body: mockDeletePostInput,
+    } as unknown as DeletePostRequest;
     const response = {
       json: jest.fn(),
-    } as unknown as CreatePostResponse;
+    } as unknown as DeletePostResponse;
     const mockNext = jest.fn();
     await mainHandler(request, response, mockNext);
     expect(mockNext).not.toHaveBeenCalled();
     expect(response.json).toHaveBeenCalledTimes(1);
     expect(response.json).toHaveBeenCalledWith({
-      data: mockCreatePostOutput,
+      data: mockDeletePostOutput,
     });
   });
 });

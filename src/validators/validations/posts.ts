@@ -1,4 +1,5 @@
 import Joi from 'joi';
+import { AtProtoPost } from '@/definitions';
 
 export const createPostSchema = Joi.object({
   repo: Joi.string().required(),
@@ -41,4 +42,10 @@ export const createPostSchema = Joi.object({
   })
     .unknown(true)
     .required(),
+});
+
+export const deletePostSchema = Joi.object({
+  collection: Joi.string().valid(AtProtoPost.AppBskyFeedPost).required(),
+  repo: Joi.string().required(),
+  rkey: Joi.string().required(),
 });
