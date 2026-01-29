@@ -39,6 +39,10 @@ export const createPostSchema = Joi.object({
     }).optional(),
     embed: Joi.object().optional(),
     labels: Joi.object().optional(),
+    location: Joi.object({
+      latitude: Joi.number().required(),
+      longitude: Joi.number().required(),
+    }).optional(),
   })
     .unknown(true)
     .required(),

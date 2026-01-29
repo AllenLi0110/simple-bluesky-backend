@@ -65,6 +65,10 @@ import { Request } from 'express';
  *            },
  *            "langs": ["en"],
  *            "tag": ["mockTag"],
+ *            "location": {
+ *              "latitude": 25.0330,
+ *              "longitude": 121.5654
+ *            },
  *            "createdAt": "2025-04-11T17:04:51.782Z"
  *          },
  *          "swapCommit": "mockCID"
@@ -109,6 +113,9 @@ import { Request } from 'express';
  * @apiBody {String}   record.embed.media.images.alt            Alt text for the image.
  * @apiBody {String[]} record.langs                             Array of language codes (e.g., "en").
  * @apiBody {String[]} [record.tag]                             Optional array of hashtags or labels.
+ * @apiBody {Object}   [record.location]                        Optional location data for the post.
+ * @apiBody {Number}   record.location.latitude                  Latitude coordinate.
+ * @apiBody {Number}   record.location.longitude                 Longitude coordinate.
  * @apiBody {String}   record.createdAt                         ISO timestamp of post creation.
  * @apiBody {String}   [swapCommit]                             Optional swap commit ID (for concurrency control).
  */

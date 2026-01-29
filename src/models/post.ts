@@ -33,6 +33,13 @@ export interface IPost {
   tags?: string[];
   /** Original post creation timestamp */
   createdAt: string;
+  /** Location data for the post */
+  location?: {
+    /** Latitude coordinate */
+    latitude: number;
+    /** Longitude coordinate */
+    longitude: number;
+  };
   /** Additional arbitrary properties */
   // [k: string]: unknown;
 }

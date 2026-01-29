@@ -21,6 +21,9 @@ import { BasicResponse } from '.';
  * @apiSuccess {String}   data.feed[].post.record.$type       Record type
  * @apiSuccess {String}   data.feed[].post.record.text        Post content
  * @apiSuccess {String}   data.feed[].post.record.createdAt   Post creation time
+ * @apiSuccess {Object}   [data.feed[].post.record.location]  Optional location data
+ * @apiSuccess {Number}   data.feed[].post.record.location.latitude  Latitude coordinate
+ * @apiSuccess {Number}   data.feed[].post.record.location.longitude Longitude coordinate
  * @apiSuccess {Number}   data.feed[].post.replyCount         Number of replies
  * @apiSuccess {Number}   data.feed[].post.repostCount        Number of reposts
  * @apiSuccess {Number}   data.feed[].post.likeCount          Number of likes
@@ -52,7 +55,11 @@ import { BasicResponse } from '.';
  *              "record": {
  *                "$type": "app.bsky.feed.post",
  *                "createdAt": "2025-03-16T08:20:22.993Z",
- *                "text": "Hello World!"
+ *                "text": "Hello World!",
+ *                "location": {
+ *                  "latitude": 25.0330,
+ *                  "longitude": 121.5654
+ *                }
  *              },
  *              "replyCount": 0,
  *              "repostCount": 0,
